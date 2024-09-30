@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<f:view contentType="text/html" encoding="UTF-8">
+    <h:head>
+        <title>Teste de Desenvolvimento</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+		<style>
+		    body {
+		        background-color: #f8f9fa;
+		        font-family: Arial, sans-serif;
+		    }
+		    h1 {
+		        margin-bottom: 20px;
+		        color: #343a40;
+		    }
+		    .form-container {
+		        background: white;
+		        padding: 20px;
+		        border-radius: 8px;
+		        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		        width: 90%; 
+		        max-width: 700px; 
+		        margin: 90px auto 80px;
+		        transition: box-shadow 0.3s;
+		    }
+		    .form-container:hover {
+		        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+		    }
+		    .table-container {
+		        margin-top: 30px;
+		        background: white;
+		        border-radius: 8px;
+		        padding: 20px;
+		        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		        transition: box-shadow 0.3s;
+		    }
+		   	.table-container:hover {
+		        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+		    }
+			.table {
+			    width: 100%;
+			    border-collapse: collapse;
+			}
+			
+			.table th, .table td {
+			    border: 1px solid #ddd; 
+			    padding: 10px; 
+			    text-align: left; 
+			}
+			
+			.table th {
+			    background-color: gray; 
+			    color: white; 
+			}
+		    .btn-primary {
+		        background-color: #007bff;
+		        border-color: #007bff;
+		        transition: background-color 0.3s ease, transform 0.2s ease;
+		    }
+		    .btn-primary:hover {
+		        background-color: #0056b3;
+		        border-color: #0056b3;
+		    }
+		    .buttonEdit{
+		        align-items: center;
+		        background-color: #2e82db;
+		        border-radius: 4px;
+		        border-width: 0;
+		        box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px, rgba(45, 35, 66, 0.15) 0 7px 13px -3px, #07386b 0 -3px 0 inset;
+		        color: white;
+		        cursor: pointer;
+		        display: inline-flex;
+		        height: 48px;
+		        justify-content: center;
+		        padding: 0 16px;
+		        position: relative;
+		        text-align: left;
+		        transition: box-shadow 0.15s, transform 0.15s;
+		        font-size: 18px;
+		    }
+		    .buttonEdit:focus{
+		        box-shadow: #07386b 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #07386b 0 -3px 0 inset;
+		    }
+		    .buttonEdit:hover {
+		        box-shadow: rgba(45, 35, 66, 0.3) 0 4px 8px, rgba(45, 35, 66, 0.2) 0 7px 13px -3px, #07386b 0 -3px 0 inset;
+		        transform: translateY(-2px);
+		    }
+		    .buttonEdit:active {
+		        box-shadow: #07386b 0 3px 7px inset;
+		        transform: translateY(2px);
+		    }
+		    
+		    .buttonEdit2{
+		        align-items: center;
+		        background-color: #dbdbdb;
+		        border-radius: 4px;
+		        border-width: 0;
+		        box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px, rgba(45, 35, 66, 0.15) 0 7px 13px -3px, #adadad 0 -3px 0 inset;
+		        color: black;
+		        cursor: pointer;
+		        display: inline-flex;
+		        height: 48px;
+		        justify-content: center;
+		        padding: 0 16px;
+		        position: relative;
+		        text-align: left;
+		        transition: box-shadow 0.15s, transform 0.15s;
+		        font-size: 18px;
+		    }
+		    .buttonEdit2:focus{
+		        box-shadow: #adadad 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #adadad 0 -3px 0 inset;
+		    }
+		    .buttonEdit2:hover {
+		        box-shadow: rgba(45, 35, 66, 0.3) 0 4px 8px, rgba(45, 35, 66, 0.2) 0 7px 13px -3px, #adadad 0 -3px 0 inset;
+		        transform: translateY(-2px);
+		    }
+		    .buttonEdit2:active {
+		        box-shadow: #adadad 0 3px 7px inset;
+		        transform: translateY(2px);
+		    }
+		    
+		    
+
+		</style>
+
+        <script>
+            $(document).ready(function(){
+                // Aplique a máscara para os campos de data
+                $('input[id$="dataAquisicao"]').mask('0000/00/00');
+                $('input[id$="validade"]').mask('0000/00/00');
+
+                // Função para inserir barras automaticamente
+                $('input[id$="dataAquisicao"], input[id$="validade"]').on('input', function() {
+                    var input = $(this).val();
+                    input = input.replace(/\D/g, ''); // Remover qualquer caractere não numérico
+                    if (input.length >= 4) {
+                        input = input.slice(0, 4) + '/' + input.slice(4); // Adiciona a primeira barra
+                    }
+                    if (input.length >= 7) {
+                        input = input.slice(0, 7) + '/' + input.slice(7); // Adiciona a segunda barra
+                    }
+                    $(this).val(input); // Atualiza o valor do campo
+                });
+
+
+                // Função para verificar se a data é válida
+                function isValidDate(dateString) {
+                    var parts = dateString.split('/');
+                    if (parts.length !== 3) return false; // Verifica se tem 3 partes
+                    var year = parseInt(parts[0], 10);
+                    var month = parseInt(parts[1], 10) - 1; // Os meses começam em 0
+                    var day = parseInt(parts[2], 10);
+                    var date = new Date(year, month, day);
+                    return date.getFullYear() === year &amp;&amp; date.getMonth() === month &amp;&amp; date.getDate() === day; 
+                }
+            });
+        </script>
+    </h:head>
+    <h:body>
+        <div class="container mt-5">
+            <h:form id="equipamentoForm" class="form-container">
+                <h1>Informações de Cadastro de Produto</h1>
+                
+                
+                <h:panelGrid columns="3" class="mb-4">
+                    <h:outputLabel for="nome" value="Nome:" />
+                    <h:inputText id="nome" value="#{equipamentoMB.equipamento.nome}" 
+                                 class="form-control" required="true" requiredMessage="*Nome é obrigatório." />
+                    <h:message for="nome" styleClass="text-danger" />
+                
+                    <h:outputLabel for="descricao" value="Descrição:" />
+                    <h:inputText id="descricao" value="#{equipamentoMB.equipamento.descricao}" 
+                                 class="form-control" required="true" requiredMessage="*Descrição é obrigatória." />
+                    <h:message for="descricao" styleClass="text-danger" />
+                
+                    <h:outputLabel for="dataAquisicao" value="Data de Aquisição:" />
+                    <h:inputText id="dataAquisicao" value="#{equipamentoMB.equipamento.dataAquisicao}" 
+                                 converter="localDateConverter" required="true" requiredMessage="*Data de Aquisição é obrigatória." 
+                                 class="form-control" />
+                    <h:message for="dataAquisicao" styleClass="text-danger" />
+                
+                    <h:outputLabel for="valor" value="Valor:" />
+					<h:inputText id="valor" value="#{equipamentoMB.equipamento.valor}" 
+					             class="form-control" required="true" requiredMessage="*Valor é obrigatório."
+					             validator="#{equipamentoMB.validateValor}" />
+					<h:message for="valor" styleClass="text-danger" />
+
+					
+                    <h:outputLabel for="validade" value="Validade:" />
+                    <h:inputText id="validade" value="#{equipamentoMB.equipamento.validade}" 
+                                 converter="localDateConverter" required="true" requiredMessage="*Validade é obrigatória." 
+                                 class="form-control" />
+                    <h:message for="validade" styleClass="text-danger" />
+                </h:panelGrid>
+                <h:messages redisplay="false" styleClass="text-danger" />
+                
+                <h:commandButton value="Salvar" action="#{equipamentoMB.salvar}" 
+                                 styleClass="buttonEdit" update="equipamentoForm" process="@form"/>
+            </h:form>
+            
+
+
+			<div class="table-container">
+			    <h1>Lista de Produtos Cadastrados</h1>
+			
+				<h:dataTable value="#{equipamentoMB.equipamentos}" var="equip" class="table" id="tableEquip">
+				    
+				    <h:column>
+				        <f:facet name="header">Nome</f:facet>
+				        <h:outputText value="#{equip.nome}" />
+				    </h:column>
+				
+				    <h:column>
+				        <f:facet name="header">Descrição</f:facet>
+				        <h:outputText value="#{equip.descricao}" />
+				    </h:column>
+				
+				    <h:column>
+				        <f:facet name="header">Data de Aquisição</f:facet>
+				        <h:outputText value="#{equip.dataAquisicao}" />
+				    </h:column>
+				
+				    <h:column>
+				        <f:facet name="header">Valor</f:facet>
+				        <h:outputText value="#{equip.valor}" />
+				    </h:column>
+				
+				    <h:column>
+				        <f:facet name="header">Validade</f:facet>
+				        <h:outputText value="#{equip.validade}" />
+				    </h:column>
+				
+				    <h:column>
+				        <h:link value="Editar" styleClass="buttonEdit" outcome="/paginas/editarEquipamento.xhtml">
+				        	<f:param name="parametro" value="#{equip.id}" />
+				        	<f:param name="parametro0" value="#{equip.nome}" />
+				        	<f:param name="parametro1" value="#{equip.descricao}" />
+				        </h:link>
+				    </h:column>
+
+				
+				</h:dataTable>
+
+			</div>
+        </div>
+        
+	    <footer class="footer mt-5" style="background-color: #343a40; color: white; padding: 20px 0; text-align: center;">
+	        <div class="container">
+	            <p class="mb-0">&copy; 2024 - Veloxi devSquad. Todos os direitos reservados.</p>
+	            <p class="mb-0">Telefone: (41) 99547-3757</p>
+	            <p class="mb-0"><a href="#" style="color: white;">Política de Privacidade</a> | <a href="#" style="color: white;">Termos de Uso</a></p>
+	            <br></br>
+	            
+				<h:commandButton styleClass="buttonEdit2"
+								 value ="Voltar ao Topo"
+				                 onclick="window.scrollTo(0, 0); return false;" 
+				                 aria-label="Voltar ao topo">
+				    <i class="fas fa-chevron-up"></i>
+				</h:commandButton>
+            </div>
+	    </footer>
+    </h:body>
+</f:view>
+</html>

@@ -1,7 +1,7 @@
 # skeleton
 skeleton default project
 
-</subsystem>
+$</subsystem>
 <subsystem xmlns="urn:jboss:domain:bean-validation:1.0"/>
 <subsystem xmlns="urn:jboss:domain:core-management:1.0"/>
 <subsystem xmlns="urn:jboss:domain:datasources:7.1">
